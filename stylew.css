@@ -1,0 +1,233 @@
+/* --- VARIABLES DE COLORES --- */
+:root {
+    --color-principal-lila: #BD91F7; /* Lila vibrante */
+    --color-secundario-morado: #7A42C7; /* Morado más oscuro, complementario */
+    --color-acento-rosa: #FF8AD1;    /* Rosa chicle/fucsia para acentos */
+    --color-fondo-claro: #F5EEFF;   /* Lila muy claro, casi blanco */
+    --color-texto-oscuro: #333;
+    --color-texto-claro: #F8F8F8;
+    --color-borde-suave: #DCC8F7;  /* Lila suave para bordes */
+    --color-fondo-formulario: #E6D7FF; /* Lila claro para el fondo del formulario */
+}
+
+/* --- ESTILOS GENERALES DEL BODY --- */
+body {
+    font-family: 'Montserrat', sans-serif; /* Fuente moderna y legible */
+    background: linear-gradient(135deg, var(--color-fondo-claro), var(--color-principal-lila)); /* Degradado sutil */
+    color: var(--color-texto-oscuro);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    scroll-behavior: smooth; /* Desplazamiento suave para anclas */
+}
+
+/* --- ESTILO DEL CONTENEDOR PRINCIPAL --- */
+.container {
+    max-width: 800px;
+    margin: 30px auto; /* Espacio superior e inferior */
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px; /* Bordes más redondeados */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    border: 1px solid var(--color-borde-suave);
+    overflow: hidden; /* Asegura que el contenido se ajuste */
+}
+
+/* --- ENCABEZADO --- */
+header {
+    text-align: center;
+    padding-bottom: 25px;
+    border-bottom: 2px solid var(--color-acento-rosa); /* Rosa de acento */
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--color-secundario-morado); /* Morado oscuro para el título principal */
+    font-size: 3em; /* Más grande */
+    margin-bottom: 10px;
+    letter-spacing: 1.5px; /* Espaciado entre letras */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+
+header p {
+    font-size: 1.1em;
+    color: var(--color-secundario-morado);
+}
+
+/* --- CONTENEDOR DE LA FOTO --- */
+.photo-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.photo-container img {
+    width: 350px; /* Tamaño un poco más grande */
+    height: 280px;
+    object-fit: cover;
+    border-radius: 50%; /* Circular */
+    border: 6px solid var(--color-acento-rosa); /* Borde rosa más grueso */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transición suave para la animación */
+}
+
+/* --- ANIMACIÓN DE LA FOTO (HOVER) --- */
+.photo-container img:hover {
+    transform: scale(1.08) rotate(3deg); /* Agranda ligeramente y rota al pasar el mouse */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+/* --- ESTILO DE LAS SECCIONES --- */
+section {
+    margin-bottom: 35px;
+    padding: 20px;
+    background-color: var(--color-fondo-claro); /* Fondo lila claro para las secciones */
+    border-radius: 8px;
+    border: 1px solid var(--color-borde-suave);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+h2 {
+    color: var(--color-principal-lila); /* Lila principal para los subtítulos */
+    border-bottom: 2px solid var(--color-borde-suave);
+    padding-bottom: 8px;
+    margin-top: 0;
+    font-size: 1.8em;
+}
+
+section ul {
+    list-style-type: none; /* Quita viñetas por defecto */
+    padding-left: 0;
+}
+
+section ul li {
+    padding: 5px 0;
+    position: relative;
+    padding-left: 25px;
+}
+
+section ul li::before {
+    content: '🎉'; /* Icono de confeti como viñeta */
+    position: absolute;
+    left: 0;
+    color: var(--color-acento-rosa);
+}
+
+/* --- ENLACES --- */
+a {
+    color: var(--color-secundario-morado);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-acento-rosa);
+    text-decoration: underline;
+}
+
+/* --- ESTILOS DEL FORMULARIO --- */
+form {
+    background-color: var(--color-fondo-formulario); /* Fondo lila más suave */
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid var(--color-principal-lila);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--color-secundario-morado);
+    font-size: 1.1em;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 95%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--color-borde-suave);
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: var(--color-principal-lila);
+    box-shadow: 0 0 8px rgba(var(--color-principal-lila), 0.3);
+    outline: none;
+}
+
+button {
+    background-color: var(--color-acento-rosa); /* Botón con el color de acento */
+    color: var(--color-texto-claro);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px; /* Botón más redondeado */
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: var(--color-secundario-morado); /* Cambia a morado al pasar el mouse */
+    transform: translateY(-2px); /* Pequeño efecto de elevación */
+}
+
+small {
+    display: block;
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #777;
+    text-align: center;
+}
+
+/* --- MENSAJE DE CONFIRMACION JS --- */
+#mensaje-confirmacion {
+    background-color: #E8F5E9; /* Fondo verde claro */
+    color: #2E7D32; /* Texto verde oscuro */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #A5D6A7;
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    color: #999;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--color-borde-suave);
+    font-size: 0.9em;
+}
+
+/* --- RESPONSIVE DESIGN (Básico) --- */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 20px;
+        margin: 15px auto;
+    }
+    h1 {
+        font-size: 2.2em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    .photo-container img {
+        width: 150px;
+        height: 150px;
+    }
+    input[type="text"],
+    input[type="number"] {
+        width: 90%;
+    }
+}
