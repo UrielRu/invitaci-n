@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Invitación de Cumpleaños!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1> ¡Estás Invitado a mi Fiesta! 🎉</h1>
+            <p>Celebremos juntos mi cumpleaños número 60.</p>
+        </header>
+
+        <div class="photo-container">
+            <img src="/img/img-3.jpeg" alt="Foto de la Festejada">
+        </div>
+
+        <section>
+            <h2>✨ Sobre la Celebración</h2>
+            <p>Celebrar la vida es un arte, y llegar a los 60 es una obra maestra que quiero compartir contigo. Sería un honor contar con tu presencia en esta tarde tan especial para mí.</p>
+            <ul>
+                <li><strong>Fecha:</strong> Sábado, 13 de diciembre de 2025</li>
+                <li><strong>Hora:</strong> 3:00 PM</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>📍 Lugar del Evento</h2>
+            <p><strong>Salón:</strong> Salón campestre el encanto</p>
+            <p><strong>Dirección:</strong> Sur 11 1533, Ignacio Zaragoza, 94300 Orizaba, Ver.</p>
+            <a href="https://maps.app.goo.gl/qJZMSF5kYT9EoyTVA" target="_blank">Ver en Google Maps</a>
+        </section>
+
+        <section>
+            <h2>🏨 Opciones de Hospedaje Cercanas</h2>
+            <p>Para quienes vienen de fuera, estas son algunas opciones:</p>
+            <ul>
+                <li><strong>Casa Tenorio Hospedaje:</strong> Opción más económica, a 6 minutos en coche.</li>
+                <li><strong>Hotel Catalina:</strong> A 10 minutos en coche.</li>
+                <li><strong>Estacion Alameda B&B:</strong> A 6 minutos en coche.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>📝 Confirma tu Asistencia</h2>
+            <p>¡Por favor, ayúdame a saber cuántos seremos para organizar todo! Confirma antes del 30 de noviembre.</p>
+
+            <form 
+                id="rsvpForm"
+                action="https://docs.google.com/forms/d/e/1FAIpQLSd-I4nR_YUw-C5CdvyVagISYheXdhKduKYOzIH6bCAO_manxA/formResponse" 
+                method="POST" 
+                onsubmit="enviarConfirmacion(); return false;" 
+            >
+                
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="entry.1506280529" required>
+
+                <label for="acompanantes">Número de Acompañantes (sin contarte a ti):</label>
+                <input type="number" id="acompanantes" name="entry.888991511" min="0" value="0" required>
+
+                <button type="submit">¡Enviar Confirmación!</button>
+                
+                <input type="hidden" name="fvv" value="1">
+                <input type="hidden" name="fbzx" value="-8812680193108670870">
+                <input type="hidden" name="pageHistory" value="0">
+                
+            </form>
+            
+            <p id="mensaje-confirmacion" style="color: #4CAF50; font-weight: bold; display: none;">✅ ¡Tu asistencia fue registrada con éxito! Gracias.</p>
+
+        </section>
+
+        <footer>
+            <p style="text-align: center; color: #999; margin-top: 20px;">¡Gracias y te espero!</p>
+        </footer>
+    </div>
+
+   <iframe name="dummyframe" id="dummyframe" style="display:none;"></iframe>
+
+   <script>
+    function enviarConfirmacion() {
+        const form = document.getElementById('rsvpForm');
+        const data = new FormData(form);
+        const confirmationMessage = document.getElementById('mensaje-confirmacion');
+
+        // Ocultar el formulario
+        form.style.display = 'none';
+
+        // Usar fetch para enviar los datos de forma asíncrona
+        fetch(form.action, {
+            method: 'POST',
+            body: data,
+            mode: 'no-cors' // Modo para evitar problemas de CORS al enviar a Google Forms
+        })
+        .then(() => {
+            // Mostrar el mensaje de éxito
+            confirmationMessage.style.display = 'block';
+        })
+        .catch(error => {
+            // Si hay un error de red (aunque con no-cors rara vez pasa), se notifica
+            console.error('Error al enviar la confirmación:', error);
+            confirmationMessage.textContent = 'Hubo un error al enviar. Por favor, intenta de nuevo o contacta al organizador.';
+            confirmationMessage.style.display = 'block';
+            form.style.display = 'block'; // Mostrar el formulario si falla
+        });
+        
+        // La función debe terminar aquí para que el formulario no se recargue
+    }
+</script>
+
+</body>
+</html>

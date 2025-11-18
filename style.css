@@ -1,0 +1,249 @@
+/* --- VARIABLES DE COLORES (MODO OSCURO) --- */
+:root {
+    --color-principal-lila: #BD91F7; /* Lila vibrante (se mantiene) */
+    --color-secundario-morado: #D8AFFF; /* Lila más claro para textos principales */
+    --color-acento-rosa: #FF8AD1;    /* Rosa chicle/fucsia para acentos */
+    --color-fondo-oscuro: #1A1A2E;   /* Azul/Morado Oscuro (Fondo principal) */
+    --color-fondo-claro: #2C2C40;    /* Fondo secundario (para secciones y contenedor) */
+    --color-texto-oscuro: #E0E0E0;   /* Texto general (claro) */
+    --color-texto-claro: #1A1A2E;    /* Usado solo para el botón, si es necesario */
+    --color-borde-suave: #4A4A6A;    /* Bordes sutiles */
+    --color-fondo-formulario: #3A3A5A; /* Fondo del formulario */
+    --color-principal-lila: #BD91F7; /* Lila vibrante */
+    /* ... otras variables ... */
+    --color-fondo-oscuro: #1A1A2E;   /* Este es el color oscuro que se mezcla */ 
+    /* ... el resto ... */
+}
+
+/* --- ESTILOS GENERALES DEL BODY --- */
+body {
+    font-family: 'Montserrat', sans-serif;
+    
+    /* CAMBIO CLAVE: Degradado de arriba (Lila) a abajo (Morado Metálico) */
+    background: linear-gradient(to bottom, var(--color-fondo-oscuro) 0%, #330066 100%);
+    
+    /* Aseguramos que el degradado cubra todo al hacer scroll */
+    min-height: 100vh; 
+    background-attachment: fixed; /* Mantiene el fondo fijo mientras el contenido se desplaza */
+    
+    color: var(--color-texto-oscuro); 
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+}
+
+/* --- ESTILO DEL CONTENEDOR PRINCIPAL --- */
+.container {
+    max-width: 800px;
+    margin: 30px auto;
+    background-color: var(--color-fondo-claro); /* Fondo oscuro para la tarjeta */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Sombra más visible en fondo oscuro */
+    border: 1px solid var(--color-borde-suave);
+    overflow: hidden;
+}
+
+/* --- ENCABEZADO Y TÍTULOS --- */
+header {
+    text-align: center;
+    padding-bottom: 25px;
+    border-bottom: 2px solid var(--color-acento-rosa);
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--color-principal-lila); /* Lila principal para el título */
+    font-size: 3em;
+    margin-bottom: 10px;
+    letter-spacing: 1.5px;
+    text-shadow: 0 0 10px rgba(189, 145, 247, 0.4); /* Brillo sutil lila */
+}
+
+header p {
+    font-size: 1.1em;
+    color: var(--color-secundario-morado);
+}
+
+/* --- CONTENEDOR DE LA FOTO Y ANIMACIÓN --- */
+.photo-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.photo-container img {
+    /* ¡CAMBIOS AQUÍ! Imagen más grande */
+    width: 350px; 
+    height: 280px;
+    
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid var(--color-acento-rosa); /* Borde un poco más grueso para que se vea proporcional */
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.photo-container img:hover {
+    /* Mantenemos la animación */
+    transform: scale(1.05) rotate(2deg); /* Ajustamos la escala para que no sea demasiado grande */
+    box-shadow: 0 0 40px rgba(255, 138, 209, 0.8); /* Más brillo en el hover */
+}
+
+/* --- ESTILO DE LAS SECCIONES --- */
+section {
+    margin-bottom: 35px;
+    padding: 20px;
+    background-color: var(--color-fondo-oscuro); /* Un tono más oscuro que el contenedor principal */
+    border-radius: 8px;
+    border: 1px solid var(--color-borde-suave);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+    color: var(--color-secundario-morado); /* Lila claro para los subtítulos */
+    border-bottom: 2px solid var(--color-borde-suave);
+    padding-bottom: 8px;
+    margin-top: 0;
+    font-size: 1.8em;
+}
+
+section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+section ul li {
+    padding: 5px 0;
+    position: relative;
+    padding-left: 25px;
+    color: var(--color-texto-oscuro); /* Asegura que el texto de la lista sea claro */
+}
+
+section ul li::before {
+    content: '✨'; /* Icono de brillo, más apropiado para modo oscuro */
+    position: absolute;
+    left: 0;
+    color: var(--color-principal-lila);
+}
+
+/* --- ENLACES --- */
+a {
+    color: var(--color-principal-lila);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-acento-rosa);
+    text-decoration: underline;
+}
+
+/* --- ESTILOS DEL FORMULARIO --- */
+form {
+    background-color: var(--color-fondo-formulario);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid var(--color-principal-lila);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--color-secundario-morado);
+    font-size: 1.1em;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 95%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--color-borde-suave);
+    background-color: #3A3A5A; /* Fondo de entrada más oscuro */
+    color: var(--color-texto-oscuro); /* Texto de entrada claro */
+    border-radius: 6px;
+    font-size: 1em;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: var(--color-principal-lila);
+    box-shadow: 0 0 8px rgba(var(--color-principal-lila), 0.5);
+    outline: none;
+}
+
+button {
+    background-color: var(--color-acento-rosa);
+    color: var(--color-texto-claro); /* Usa el color oscuro para contraste en el botón */
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+button:hover {
+    background-color: var(--color-principal-lila); /* Lila principal al pasar el mouse */
+    transform: translateY(-2px);
+}
+
+small {
+    display: block;
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #999;
+    text-align: center;
+}
+
+/* --- MENSAJE DE CONFIRMACION JS (ADAPTADO AL MODO OSCURO) --- */
+#mensaje-confirmacion {
+    background-color: #2D4C30; /* Fondo verde oscuro sutil */
+    color: #A5D6A7; /* Texto verde claro */
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #4D7E50;
+    text-align: center;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    color: #6A6A78; /* Gris oscuro para el pie de página */
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--color-borde-suave);
+    font-size: 0.9em;
+}
+
+/* --- RESPONSIVE DESIGN (Básico) --- */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 20px;
+        margin: 15px auto;
+    }
+    h1 {
+        font-size: 2.2em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    .photo-container img {
+        width: 150px;
+        height: 150px;
+    }
+    input[type="text"],
+    input[type="number"] {
+        width: 90%;
+    }
+}
