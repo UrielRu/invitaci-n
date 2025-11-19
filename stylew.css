@@ -57,7 +57,7 @@ header p {
 /* --- CONTENEDOR DE LA FOTO --- */
 .photo-container {
     text-align: center;
-    margin: 30px 0;
+    margin: 60px 0;
 }
 
 .photo-container img {
@@ -232,3 +232,4 @@ footer {
     }
 
 }
+
