@@ -61,8 +61,8 @@ header p {
 }
 
 .photo-container img {
-    width: 350px; /* Tamaño un poco más grande */
-    height: 280px;
+    width: 450px; /* Tamaño un poco más grande */
+    height: 380px;
     object-fit: cover;
     border-radius: 50%; /* Circular */
     border: 6px solid var(--color-acento-rosa); /* Borde rosa más grueso */
@@ -230,4 +230,5 @@ footer {
     input[type="number"] {
         width: 90%;
     }
+
 }
